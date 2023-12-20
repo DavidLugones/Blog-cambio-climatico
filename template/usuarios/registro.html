@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block contenido%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <style>
+    body {
+      color: white;
+      
+    }
+    .titulo {
+      padding: 10px;
+      margin: 20px;
+      text-align: center;
+    
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="titulo">
+          <p style="text-align: justify; margin: 30px;" >Inicia el cambio hacia un Horizonte Verde.
+        </div>
+        <p style="text-align: justify; margin: 30px;" >Bienvenido al blog de noticias, donde encontrarás las últimas novedades sobre diversos temas de actualidad. Aquí podrás leer, comentar y compartir las noticias que más te interesen.
+      </div>
+      <div class="col-md-6">
+        <form action="" method="post">{% csrf_token %}
+          {{form.as_p}}
+          <p><input type="submit" value="Confirmar"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br> <br> <br> <br>
+  {% endblock contenido %}
+ 
+</body>
+</html>

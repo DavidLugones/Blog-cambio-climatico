@@ -1,0 +1,20 @@
+{% extends 'home.html' %}
+
+
+{% block contenido %}
+
+<style>
+    body {
+        color: white;
+    }
+</style>
+
+<form action="" method="post" enctype="multipart/form-data" style="text-align: center;">
+    {% csrf_token %}         
+    <p style="margin: 30px;">CREAR NOTICIA<br>
+    {{form.as_p}}
+    <p><input type="submit" value="Confirmar"></p>
+</form>
+<br><br><br><br>
+
+{% endblock contenido %}
