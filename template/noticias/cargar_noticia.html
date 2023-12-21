@@ -1,20 +1,40 @@
 {% extends 'home.html' %}
 
-
 {% block contenido %}
+    <style>
+        body {
+            color: white;
+            font-family: 'Arial', sans-serif; 
+        }
 
-<style>
-    body {
-        color: white;
-    }
-</style>
+        form {
+            text-align: center;
+        }
 
-<form action="" method="post" enctype="multipart/form-data" style="text-align: center;">
-    {% csrf_token %}         
-    <p style="margin: 30px;">CREAR NOTICIA<br>
-    {{form.as_p}}
-    <p><input type="submit" value="Confirmar"></p>
-</form>
-<br><br><br><br>
+        p {
+            margin: 30px;
+            font-family: 'Verdana', sans-serif; 
+            color: #73e5ef; 
+        }
 
+        input[type="submit"] {
+            background-color: #4CAF50; 
+            color: rgb(182, 179, 179);
+            font-family: 'Courier New', monospace; 
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}         
+        <p>CREAR NOTICIA</p>
+        {{ form.as_p }}
+        <p><input type="submit" value="Confirmar"></p>
+    </form>
+
+    <br><br><br><br>
 {% endblock contenido %}
