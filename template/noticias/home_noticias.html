@@ -1,33 +1,69 @@
 {% extends 'home.html' %}
 
-
 {% block contenido %}
+    <style>
+        body {
+            color: rgb(60, 215, 242);
+        }
+    </style>
 
-<style>
-    body {
-		
-        color: white;
-       
-    }
-</style>
+    <b>SECCIÓN DE NOTICIAS</b>
+    <br><br><br><br>
+    {{ fecha }}
 
-<b>SECCIÓN DE NOTICIAS</b>
-<br><br><br><br>
-	{{fecha}}
+    {% for n in noticias %}
+        <div>
+            <p><strong>TITULO:</strong><br>
+                {{ n.titulo }}</p>
+            
+            {% if n.contenido|length > 100 %}
 
-	{% for n in noticias %}
-	<div>
-		<p><strong>TITULO:</strong>{{n.titulo}}</p>
-		<p><strong>CONTENIDO:</strong>{{n.contenido}}</p>
-		<a href="{% url 'noticias:detalle_noticia' n.pk %}">
-		<p><img src="{{n.imagen.url}}" width="150px"></p>
-		</a>
-		<a href="{% url 'noticias:detalle_noticia' n.pk %}">Ver mas</a>
-		<a href="{% url 'noticias:modificar_noticia' n.pk %}">Modificar</a>
-		<a href="{% url 'noticias:borrar_noticia' n.pk %}">Borrar</a>
-	</div><hr><hr>
+                <p><strong>CONTENIDO:</strong><br>
+                    <span id="contenido-preview-{{ n.pk }}">{{ n.contenido|slice:":100" }}</span>
+                    <span id="contenido-full-{{ n.pk }}" style="display: none;">{{ n.contenido }}</span>
+                </p>
+                <button data-noticia-id="{{ n.pk }}" onclick="mostrarMas(this)">Ver más</button>
+                <button data-noticia-id="{{ n.pk }}" onclick="mostrarMenos(this)" style="display: none;">Ver menos</button>
+            {% else %}
+                <p><strong>CONTENIDO:</strong><br>
+                    {{ n.contenido }}
+                </p>
+            {% endif %}
 
-	{% endfor %}
-	
-	
+            <a href="{% url 'noticias:detalle_noticia' n.pk %}" style="color: hsl(127, 49%, 35%);">Ver noticia completa</a>
+            <a href="{% url 'noticias:modificar_noticia' n.pk %}" style="color: hsl(127, 49%, 35%);">Modificar</a>
+            <a href="{% url 'noticias:borrar_noticia' n.pk %}" style="color: hsl(127, 49%, 35%);">Borrar</a>
+
+            <!-- Mostrar la imagen -->
+            <img src="{{ n.imagen.url }}" alt="Imagen de la noticia" width="250px">
+        </div><hr><hr>
+    {% endfor %}
+
+    <script>
+        function mostrarMas(boton) {
+            var noticiaId = boton.getAttribute("data-noticia-id");
+            var contenidoPreview = document.getElementById("contenido-preview-" + noticiaId);
+            var contenidoFull = document.getElementById("contenido-full-" + noticiaId);
+            var botonVerMas = boton;
+            var botonVerMenos = document.querySelector('[data-noticia-id="' + noticiaId + '"][onclick="mostrarMenos(this)"]');
+
+            contenidoPreview.style.display = "none";
+            contenidoFull.style.display = "inline";
+            botonVerMas.style.display = "none";
+            botonVerMenos.style.display = "inline";
+        }
+
+        function mostrarMenos(boton) {
+            var noticiaId = boton.getAttribute("data-noticia-id");
+            var contenidoPreview = document.getElementById("contenido-preview-" + noticiaId);
+            var contenidoFull = document.getElementById("contenido-full-" + noticiaId);
+            var botonVerMas = document.querySelector('[data-noticia-id="' + noticiaId + '"][onclick="mostrarMas(this)"]');
+            var botonVerMenos = boton;
+
+            contenidoPreview.style.display = "inline";
+            contenidoFull.style.display = "none";
+            botonVerMas.style.display = "inline";
+            botonVerMenos.style.display = "none";
+        }
+    </script>
 {% endblock contenido %}
