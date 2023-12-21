@@ -37,38 +37,35 @@
  </div>
  <!-- banner section end -->
  <br><br><br>
- <!-- noticias section start -->
+<!-- noticias section start -->
 <div class="noticias_section layout_padding">
     <div class="container">
         <h1 class="" style="text-align: center; color: white;">Noticias</h1>
     </div>
 </div>
-        <p class="noticias_text" style=" text-align: center; color: white;">Aquí encontrarás las últimas noticias y actualizaciones.</p>
-        <div class="noticias_section_2">
-            <div class="row">
-                <div class="col-md-4">
-                    <div><img src="{% static 'images/log.jpeg' %}" class="noticias_img" alt="Imagen destacada"></div>
-                    
-                </div>
-                <div class="col-md-4">
-                    <div><img src="{% static 'images/img-2.png' %}" class="noticias_img" alt="Imagen colabora"></div>
-                    
-                </div>
-                <div class="col-md-4">
-                    <div><img src="{% static 'images/img-3.png' %}" class="noticias_img" alt="Imagen interés"></div>
-                    
-                </div>
-            </div>
+<p class="noticias_text" style=" text-align: center; color: white;">Aquí encontrarás las últimas noticias y actualizaciones.</p>
+<div class="noticias_section_2">
+    <div class="row">
+        {% for noticia in noticias %}
+        <div class="col-md-4">
+            <div><img src="{{ noticia.imagen.url }}" class="noticias_img" alt="{{ noticia.titulo }}"></div>
+            <h2>{{ noticia.titulo }}</h2>
+            <p>{{ noticia.contenido }}</p>
         </div>
+        {% endfor %}
     </div>
- </div>
- <!-- noticias section end -->
+</div>
+<div>
+    <a href="{% url 'noticias:h_noticias' %}" style="text-align: center; color: white;" >Ver más</a>  <!-- Botón Ver más -->
+</div>
+<!-- noticias section end -->
+
  <br><br><br><br><br><br><br>
  <!-- video section start -->
  <div class="video_section layout_padding"> 
      <div class="container">
-         <h2 class="video_taital"style="text-align: center; color: rgb(3, 0, 0);"  >INFORMATE EN NUESTRA SECCIÓN DE VIDEOS. <img src="static/images/youtub-icon.png"></h2>
-         <p class="video_text" style="text-align: center; color: rgb(3, 0, 0);" >Aquí encontrarás una variedad de videos interesantes y educativos.</p>
+         <h2 class="video_taital"style="text-align: center; color: white;"  >INFORMATE EN NUESTRA SECCIÓN DE VIDEOS. <img src="static/images/youtub-icon.png"></h2>
+         <p class="video_text" style="text-align: center; color: white;" >Aquí encontrarás una variedad de videos interesantes y educativos.</p>
          <div class="video_section_2" style="display: flex; justify-content: space-between;">
              <iframe width="560" height="315" src="https://www.youtube.com/embed/-DHzfKcz3Hw" title="Desmonte Argentina" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
              <iframe width="560" height="315" src="https://www.youtube.com/embed/GxWohx1_VOw" title="Documental Cambio Climático" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
