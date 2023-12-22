@@ -11,16 +11,14 @@
                     <h2 class="banner_text">Hacia un futuro sostenible</h2>
                     <p class="banner_text">
                         Bienvenidos a Horizonte Verde, tu fuente confiable para explorar y comprender el apremiante desafío que enfrenta nuestro planeta: el cambio climático. <br><br> En este espacio, nos sumergiremos en las complejidades de un fenómeno que está transformando la faz de la Tierra a un ritmo sin precedentes. <br><br> Desde eventos climáticos extremos hasta cambios en los ecosistemas, cada día presenciamos las huellas indelebles del impacto humano en nuestro entorno.
-                    </p>
-                    
+                    </p>          
                 </div>
                 <br><br><br> <br><br>
             </div>
             <div class="carousel-item">
                 <div class="container">
                     <h1 class="banner_taital">Noticias</h1>
-                    <p class="banner_text">Las noticias más destacadas sobre el camabio climático. <br><br><br> <br><br><br></p>
-                   
+                    <p class="banner_text">Las noticias más destacadas sobre el camabio climático. <br><br><br> <br><br><br></p>                 
                 </div>
                 <br><br><br> <br><br><br>
             </div>
@@ -28,15 +26,13 @@
                 <div class="container">
                     <h1 class="banner_taital">Sumate</h1>
                     <p class="banner_text">Registrate hoy mismo y empezá a cambiar el mundo junto a nuestra comunidad. <br><br><br> <br><br><br></p>
-                    
                 </div>
-                <br><br><br> <br><br><br>
             </div>
         </div>
     </div>
  </div>
- <!-- banner section end -->
- <br><br><br>
+<!-- banner section end -->
+
 <!-- noticias section start -->
 <div class="noticias_section layout_padding">
     <div class="container">
@@ -46,22 +42,35 @@
 <p class="noticias_text" style=" text-align: center; color: white;">Aquí encontrarás las últimas noticias y actualizaciones.</p>
 <div class="noticias_section_2">
     <div class="row">
-        {% for noticia in noticias %}
+        <!-- Imagen 1 -->
         <div class="col-md-4">
-            <div><img src="{{ noticia.imagen.url }}" class="noticias_img" alt="{{ noticia.titulo }}"></div>
-            <h2>{{ noticia.titulo }}</h2>
-            <p>{{ noticia.contenido }}</p>
+            <h2 style=" text-align: center; color: white;">Noticias sostenible</h2>
+            <img src="static/images/blog-mobile-bg.png" alt="Noticias sostenible" style="width:100%; height:auto;">
+            <div style="text-align: center;">
+            <a href="{% url 'noticias:h_noticias' %}" style="color: white;" >VER MÁS NOTICIAS</a>  
+            </div>
         </div>
-        {% endfor %}
+        <!-- Imagen 2 -->
+        <div class="col-md-4">
+            <h2 style=" text-align: center; color: white;">Cuidemos el planeta</h2>
+            <img src="static/images/footer-mobile-bg.png" alt="Cuidemos el planeta" style="width:100%; height:auto;">
+            <div style="text-align: center;">
+            <a href="{% url 'noticias:h_noticias' %}" style="color: white;" >VER MÁS NOTICIAS</a>  
+            </div>
+        </div>
+        <!-- Imagen 3 -->
+        <div class="col-md-4">
+            <h2 style=" text-align: center; color: white;">Fenómenos climáticos</h2>
+            <img src="static/images/climate-change.jpeg" alt="Fenómenos climáticos" style="width:100%; height:auto;">
+            <div style="text-align: center;">
+            <a href="{% url 'noticias:h_noticias' %}" style="color: white;" >VER MÁS NOTICIAS</a>  
+            </div> 
+        </div>
     </div>
-</div>
-<div style="text-align: center;">
-    <a href="{% url 'noticias:h_noticias' %}" style="color: white;" >Ver más</a>  <!-- Botón Ver más -->
 </div>
 <!-- noticias section end -->
 
- <br><br><br><br><br><br><br>
- <!-- video section start -->
+<!-- video section start -->
  <div class="video_section layout_padding"> 
      <div class="container">
          <h2 class="video_taital"style="text-align: center; color: white;"  >INFORMATE EN NUESTRA SECCIÓN DE VIDEOS. <img src="static/images/youtub-icon.png"></h2>
@@ -78,8 +87,7 @@
 
  <!-- footer section start -->
 <div class="footer_section layout_padding">
- 
-    <div class="location_main">
+     <div class="location_main">
        <div class="call_text"><img src="static/images/call-icon.png"></div>
        <div class="call_text"><a href="#">Telefono +54 9 362 521-2782</a></div>
        <div class="call_text"><img src="static/images/mail-icon.png"></div>
@@ -92,7 +100,8 @@
            <li><a href="https://www.linkedin.com"><img src="static/images/linkedin-icon.png"></a></li>
            <li><a href="https://www.instagram.com"><img src="static/images/instagram-icon.png"></a></li>
        </ul>
-   </div>
+    </div>
+</div>   
 <!-- footer section end -->
   
     <!-- Javascript files-->
