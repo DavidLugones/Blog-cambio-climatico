@@ -14,8 +14,6 @@
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
-
-
    <!-- bootstrap css -->
    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
    <!-- style css -->
@@ -23,7 +21,7 @@
    <!-- Responsive-->
    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
    <!-- fevicon -->
-   <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+   <link rel="icon" href="{% static 'images/base.jpeg' %}" type="image/gif" />
    <!-- Scrollbar Custom CSS -->
    <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
    <!-- Tweaks for older IEs-->
@@ -63,7 +61,7 @@
                             <a href="{% url 'noticias:cargar_noticia' %}">Crear noticia</a>
                         </li>  
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link" href="{% url 'login' %}">INICIA SESIÓN</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +69,7 @@
         </div>
         <div class="container-fluid">
             <div class="logo">
-                <a href="{% url 'home' %}" style="color: rgb(22, 153, 68); font-size: 5em; font-family: 'Berlin sans fb', sans-serif;">
+                <a href="{% url 'home' %}" style="color: rgb(112, 237, 10); font-size: 5em;">
                     Horizonte Verde
                 </a>
             </div>
@@ -83,6 +81,7 @@
                     <li><a href="{% url 'noticias:cargar_noticia' %}">Crear noticia</a></li>
         
                     {% if user.is_authenticated %}
+
                     <div style="font-family: 'Berlin sans fb', sans-serif; color: #3ad482; font-size: 20px; margin-top: 0px;">
                         ¡Hola, {{ user.username }}!
                         <ul>
@@ -95,8 +94,14 @@
                         <li><a href="{% url 'usuarios:registro_usuario' %}">REGISTRATE</a></li>
                     </ul>
                 {% endif %}
-                
-        
+
+                    <li><a href="{% url 'logout' %}">CERRAR SESIÓN</a></li>
+                    <li>Bienvenido,  {{ user.username }} !</li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">INICIA SESIÓN</a></li>
+                    <li><a href="{% url 'usuarios:registro_usuario' %}">REGISTRATE</a></li>
+                {% endif %}
+
                   
                 </ul>
             </div>
@@ -111,11 +116,10 @@
 <!-- copyright section start -->
 <div class="copyright_section">
     <div class="container">
-       <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free html
-             Templates</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+       <p class="copyright_text">2023 All Rights Reserved. </a></p>
     </div>
-   </div>
-   <!-- copyright section end -->
+</div>
+<!-- copyright section end -->
 
    
  </body>
