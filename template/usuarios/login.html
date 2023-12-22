@@ -4,15 +4,69 @@
 
 
 <style>
-    body {
-		
-        color: white;
-       
-    }
+  body {
+      color: white;
+      font-family: 'Roboto', sans-serif; 
+      background-image: url("https://i.imgur.com/4QfKbEr.jpg");
+      background-size: cover;
+  }
+
+  form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 10px black;
+  }
+
+  p {
+      margin: 0;
+      font-family: 'Merriweather', serif; 
+      color: #ffcc00; 
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+  }
+
+  button {
+      grid-column: span 2;
+      background-color: #ff6600; 
+      color: white;
+      font-family: 'Roboto', monospace; 
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: inset 0 0 5px black;
+      display:  inline-block;
+      justify-content: center;
+  }
+
+  label {
+      color: white;
+      font-size: 16px;
+  }
+
+  input[type="text"], input[type="email"], textarea {
+      padding: 10px;
+      border: 2px solid #ffcc00;
+      border-radius: 5px;
+      outline: none;
+  }
+
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      border-color: #ff6600;
+  }
 </style>
 <p style="text-align: center;">Inicia tu sesión<br>
 
-<form method="POST" style="text-align: center;">{%csrf_token%}
+<form method="POST">{%csrf_token%}
   {% if form.errors %}
     <p class="error"> Usuario o contraseña incorrectos </p>
   {% endif %}
@@ -24,8 +78,9 @@
     <label for="password"> Contraseña: </label>
     <input type="password" id="password" name="password" placeholder="PASSWORD">
   </div>
-  <p style="text-align: center;"> <button type="submit"> ENVIAR </button>
+  <button type="submit"> ENVIAR </button>
 </form>
+
 <br><br><br><br><br><br><br><br><br><br>
 
 

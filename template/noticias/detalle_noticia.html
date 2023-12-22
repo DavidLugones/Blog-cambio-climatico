@@ -5,12 +5,12 @@
 
 <style>
 	h1 {
-		color: rgb(113, 218, 250); 
+		color: white; 
 		font-family: 'Berlin sans fb', sans-serif; 
 	}
 
 	p {
-		color: rgb(112, 248, 62); 
+		color: white; 
 		font-family: 'Century gothic', sans-serif;
 		text-align: justify; 
 	}
@@ -18,8 +18,9 @@
 
 	<h1>Detalle de... <br>{{noticia.titulo}}</h1>
 	
-	<p>{{noticia.contenido}}</p>
+	<p>{{noticia.contenido|linebreaksbr}}</p>
 	<p><img src="{{noticia.imagen.url}}" width="450px"></p>
+
 	
 
 	<hr><hr>
