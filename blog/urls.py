@@ -31,8 +31,11 @@ urlpatterns = [
     #APP NOTICIAS
     path('noticias/', include('apps.noticias.urls')),
 
-    #APP USUARIOs
+    #APP USUARIOS
     path('Usuarios/', include('apps.usuarios.urls')),
+
+    #APP COMENTARIOS
+    path('Comentarios/', include('apps.comentarios.urls')),
 
     #LOGIN Y LOGOUT
     path('login/',auth.LoginView.as_view(template_name='usuarios/login.html'),name='login'),
