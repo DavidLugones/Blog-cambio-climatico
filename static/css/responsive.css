@@ -146,7 +146,7 @@
     .readmore_bt {
         margin-top: 30px;
     }
-    .blog_section {
+    .video_section {
         background-size: 100% 100%;
         padding-bottom: 220px;
         padding-top: 160px;
@@ -219,7 +219,7 @@
     .about_img {
         height: 340px;
     }
-    .blog_section {
+    .video_section {
         background-size: 100% 100%;
         padding-bottom: 220px;
         padding-top: 160px;
@@ -348,13 +348,13 @@
     .banner_section {
         padding: 50px 0px;
     }
-    .services_section {
+   .noticias_section {
         padding: 50px 0px;
     }
-    .services_section_2 {
+   .noticias_section_2 {
         margin-top: 30px;
     }
-    .services_img {
+   .noticias_img {
         margin-top: 40px;
     }
     .about_section {
@@ -373,12 +373,12 @@
     .padding_right_0 {
         padding-right: 15px;
     }
-    .blog_section {
-        background-image: url(../images/blog-mobile-bg.png);
+    .video_section {
+        background-image: url(../images/footer-bg.png);
         background-size: cover;
         padding: 50px 0px;
     }
-    .blog_text {
+    .video_text {
         width: 100%;
     }
     .play_icon_main {
@@ -431,7 +431,7 @@
         margin: 0 auto;
     }
     .footer_section {
-        background-image: url(../images/footer-mobile-bg.png);
+        background-image: url(../images/footer-bg.png);
         background-size: cover;
         padding: 50px 0px;
     }
@@ -546,13 +546,13 @@
     .banner_section {
         padding: 50px 0px;
     }
-    .services_section {
+   .noticias_section {
         padding: 50px 0px;
     }
-    .services_section_2 {
+   .noticias_section_2 {
         margin-top: 30px;
     }
-    .services_img {
+   .noticias_img {
         margin-top: 40px;
     }
     .about_section {
@@ -571,12 +571,12 @@
     .padding_right_0 {
         padding-right: 15px;
     }
-    .blog_section {
-        background-image: url(../images/blog-mobile-bg.png);
+    .video_section {
+        background-image: url(../images/footer-bg.png);
         background-size: cover;
         padding: 50px 0px;
     }
-    .blog_text {
+    .video_text {
         width: 100%;
     }
     .play_icon_main {
@@ -629,7 +629,7 @@
         margin: 0 auto;
     }
     .footer_section {
-        background-image: url(../images/footer-mobile-bg.png);
+        background-image: url(../images/footer-bg.png);
         background-size: cover;
         padding: 50px 0px;
     }

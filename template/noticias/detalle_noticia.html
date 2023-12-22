@@ -2,9 +2,24 @@
 
 
 {% block contenido %}
-	<h1>DETALLE DE {{noticia.titulo}}</h1>
-	<p><strong>TITULO:</strong>{{noticia.titulo}}</p>
-	<p><strong>CONTENIDO:</strong>{{noticia.contenido}}</p>
-	<p><img src="{{noticia.imagen.url}}" width="150px"></p>
+
+<style>
+	h1 {
+		color: rgb(113, 218, 250); 
+		font-family: 'Berlin sans fb', sans-serif; 
+	}
+
+	p {
+		color: rgb(112, 248, 62); 
+		font-family: 'Century gothic', sans-serif;
+		text-align: justify; 
+	}
+</style>
+
+	<h1>Detalle de... <br>{{noticia.titulo}}</h1>
+	
+	<p>{{noticia.contenido}}</p>
+	<p><img src="{{noticia.imagen.url}}" width="450px"></p>
 	
 {% endblock contenido %}
+
