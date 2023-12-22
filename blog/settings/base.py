@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'apps.noticias',
     'apps.informate',
+    'apps.comentarios',
 ]
 
 MIDDLEWARE = [
