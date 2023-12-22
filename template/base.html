@@ -81,13 +81,27 @@
                     <li><a href="{% url 'noticias:cargar_noticia' %}">Crear noticia</a></li>
         
                     {% if user.is_authenticated %}
+
+                    <div style="font-family: 'Berlin sans fb', sans-serif; color: #3ad482; font-size: 20px; margin-top: 0px;">
+                        ¡Hola, {{ user.username }}!
+                        <ul>
+                            <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <ul>
+                        <li><a href="{% url 'login' %}">LOGIN</a></li>
+                        <li><a href="{% url 'usuarios:registro_usuario' %}">REGISTRATE</a></li>
+                    </ul>
+                {% endif %}
+
                     <li><a href="{% url 'logout' %}">CERRAR SESIÓN</a></li>
                     <li>Bienvenido,  {{ user.username }} !</li>
                 {% else %}
                     <li><a href="{% url 'login' %}">INICIA SESIÓN</a></li>
                     <li><a href="{% url 'usuarios:registro_usuario' %}">REGISTRATE</a></li>
                 {% endif %}
-        
+
                   
                 </ul>
             </div>
