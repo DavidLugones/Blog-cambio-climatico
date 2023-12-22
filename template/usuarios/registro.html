@@ -1,24 +1,65 @@
 {% extends 'home.html' %}
-{% load static %}
+
 
 {% block contenido%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
   <style>
     body {
-      color: white;
-      
+        color: white;
+        font-family: 'Roboto', sans-serif; 
+        background-image: url("https://i.imgur.com/4QfKbEr.jpg");
+        background-size: cover;
     }
-    .titulo {
-      padding: 10px;
-      margin: 20px;
-      text-align: center;
-    
+  
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      
+        border-radius: 10px;
+        box-shadow: 0 0 10px black;
+    }
+  
+    p {
+        margin: 0;
+        font-family: 'Merriweather', serif; 
+        color: #ffcc00; 
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+    }
+  
+    input[type="submit"] {
+        grid-column: span 2;
+        background-color: #ff6600; 
+        color: white;
+        font-family: 'Roboto', monospace; 
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: inset 0 0 5px black;
+    }
+  
+    label {
+        color: white;
+        font-size: 16px;
+    }
+  
+    input[type="text"], input[type="email"], textarea {
+        padding: 10px;
+        border: 2px solid #ffcc00;
+        border-radius: 5px;
+        outline: none;
+    }
+  
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+        border-color: #ff6600;
     }
   </style>
 </head>
@@ -29,8 +70,6 @@
         <div class="titulo">
           <p style="text-align: justify; margin: 30px;" >Inicia el cambio hacia un Horizonte Verde.
         </div>
-        <p style="text-align: justify; margin: 30px;" >Bienvenido al blog de noticias, donde encontrarás las últimas novedades sobre diversos temas de actualidad. Aquí podrás leer, comentar y compartir las noticias que más te interesen.
-      </div>
       <div class="col-md-6">
         <form action="" method="post">{% csrf_token %}
           {{form.as_p}}
@@ -39,8 +78,5 @@
       </div>
     </div>
   </div>
-  <br> <br> <br> <br>
+
   {% endblock contenido %}
- 
-</body>
-</html>
