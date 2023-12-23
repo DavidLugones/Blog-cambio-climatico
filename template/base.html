@@ -37,11 +37,15 @@
 
 <body>
   <!-- header section start -->
-<div class="header_section">
+  <div class="header_section">
     <div class="header_main">
         <div class="mobile_menu">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="logo_mobile"><a href="{% url 'home' %}" style="color: white;">Horizonte Verde</a></div>
+                <div class="logo_mobile">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/Horizonte-Verde-logo.png' %}" alt="Horizonte Verde Logo" style="width: 15%;" />
+                    </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -69,8 +73,8 @@
         </div>
         <div class="container-fluid">
             <div class="logo">
-                <a href="{% url 'home' %}" style="color: rgb(112, 237, 10); font-size: 5em;">
-                    Horizonte Verde
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/Horizonte-Verde-logo.png' %}" alt="Horizonte Verde Logo" style="width: 15%;" />
                 </a>
             </div>
             <div class="menu_main">
