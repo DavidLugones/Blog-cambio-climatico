@@ -146,6 +146,9 @@
                 <span id="contenido-preview-{{ n.pk }}">{{ n.contenido|slice:":100" }}</span>
                 <span id="contenido-full-{{ n.pk }}" style="display: none;">{{ n.contenido }}</span>
             </p>
+            <p><strong>CATEGORIA: </strong>{{n.categoria}}</p>
+            <p><strong>FECHA: </strong>{{n.creado}}</p>
+            <p><strong>CREADO POR: </strong>{{n.usuario}}</p>
             <button data-noticia-id="{{ n.pk }}" onclick="mostrarMas(this)">Ver más</button>
             <button data-noticia-id="{{ n.pk }}" onclick="mostrarMenos(this)" style="display: none;">Ver menos</button>
         {% else %}
@@ -155,13 +158,16 @@
         {% endif %}
 
         <a class="boton-noticia" href="{% url 'noticias:detalle_noticia' n.pk %}">Ver noticia completa</a>
+        {% if request.user == n.usuario or request.user.is_staff %}
         <a class="boton-noticia" href="{% url 'noticias:modificar_noticia' n.pk %}">Modificar</a>
         <a class="boton-noticia" href="{% url 'noticias:borrar_noticia' n.pk %}">Borrar</a>
+        {% endif %}
 
         <!-- Mostrar la imagen -->
         <img src="{{ n.imagen.url }}" alt="Imagen de la noticia">
     </div>
 {% endfor %}
+
 
 <script>
     function mostrarMas(boton) {
