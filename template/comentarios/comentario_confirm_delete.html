@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+
+<style>
+    input[type="submit"] {
+        background-color: hsl(127, 49%, 35%);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100px; 
+        margin: 10px auto; 
+        display: inline-block;
+    }
+</style>
 	
 	<form method="post">{% csrf_token %}
-    	<p>Estas seguro que desa eliminar: "{{ object }}"?</p>
+    	<p style="color:white;">Estas seguro que desa eliminar: "{{ object }}"?</p>
 	    {{ form }}
 	    <input type="submit" value="CONFIRMAR">
 	</form>
-
+<br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock contenido %}
