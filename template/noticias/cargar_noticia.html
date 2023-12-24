@@ -3,37 +3,34 @@
 {% block contenido %}
 <style>
     body {
-        color: white;
-        font-family: 'Roboto', sans-serif; 
+        color: rgb(112, 237, 10);
+        font-family: 'Century Gothic', sans-serif; 
         background-size: cover;
     }
 
     form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        grid-gap: 20px;
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 400px; 
+        margin: 0 auto;   
         padding: 40px;
         border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     p {
-        margin: 0;
-        font-family: 'Merriweather', serif; 
-        color: white; 
+        margin: 15px;
+        font-family: 'Century Gothic', serif; 
+        color: rgb(112, 237, 10); 
         font-weight: bold;
         font-size: 24px;
         text-align: center;
     }
 
     input[type="submit"] {
-        grid-column: span 2;
-        background-color: #ff6600; 
+        width: 100%; 
+        background-color: hsl(127, 49%, 35%); 
         color: white;
-        font-family: 'Roboto', monospace; 
-        padding: 10px 20px;
+        font-family: 'Century Gothic', monospace; 
+        padding: 10px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -42,19 +39,24 @@
     }
 
     label {
-        color: white;
+        display: block; 
+        margin-bottom: 15px; 
+        color: rgb(112, 237, 10);
         font-size: 16px;
     }
 
     input[type="text"], input[type="email"], textarea {
+        width: 100%; 
+        box-sizing: border-box; 
         padding: 10px;
-        border: 2px solid #ffcc00;
+        margin-bottom: 15px; 
+        border: 2px solid hsl(127, 49%, 35%);
         border-radius: 5px;
         outline: none;
     }
 
     input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-        border-color: #ff6600;
+        border-color: hsl(127, 49%, 35%);
     }
 </style>
 

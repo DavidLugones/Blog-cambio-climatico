@@ -105,6 +105,25 @@
 .dropdown:focus {
     outline: none;
 }
+
+.row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+        }
+    }
+
 </style>
 
 <div class="title">DISFRUTA DE LAS ÚLTIMAS NOTICIAS</div>
@@ -145,33 +164,35 @@
 
 
 {% for n in noticias %}
-    <div class="news-item">
-        <!-- Mostrar la imagen -->
-        <img src="{{ n.imagen.url }}" alt="Imagen de la noticia" class="news-image">
-        
-        <h2>{{ n.titulo }}</h2>
+    <div class="column">
+        <div class="news-item">
+            <!-- Mostrar la imagen -->
+            <img src="{{ n.imagen.url }}" alt="Imagen de la noticia" class="news-image">
+            
+            <h2>{{ n.titulo }}</h2>
 
-        {% if n.contenido|length > 100 %}
-            <p>
-                <span id="contenido-preview-{{ n.pk }}">{{ n.contenido|slice:":100" }}</span>
-                <span id="contenido-full-{{ n.pk }}" style="display: none;">{{ n.contenido }}</span>
-            </p>
-            <p><strong>CATEGORIA: </strong>{{n.categoria}}</p>
-            <p><strong>FECHA: </strong>{{n.creado}}</p>
-            <p><strong>CREADO POR: </strong>{{n.usuario}}</p>
-            <button data-noticia-id="{{ n.pk }}" onclick="mostrarMas(this)">Ver más</button>
-            <button data-noticia-id="{{ n.pk }}" onclick="mostrarMenos(this)" style="display: none;">Ver menos</button>
-        {% else %}
-            <p>
-                {{ n.contenido }}
-            </p>
-        {% endif %}
+            {% if n.contenido|length > 100 %}
+                <p>
+                    <span id="contenido-preview-{{ n.pk }}">{{ n.contenido|slice:":100" }}</span>
+                    <span id="contenido-full-{{ n.pk }}" style="display: none;">{{ n.contenido }}</span>
+                </p>
+                <p><strong>CATEGORIA: </strong>{{n.categoria}}</p>
+                <p><strong>FECHA: </strong>{{n.creado}}</p>
+                <p><strong>CREADO POR: </strong>{{n.usuario}}</p>
+                <button data-noticia-id="{{ n.pk }}" onclick="mostrarMas(this)">Ver más</button>
+                <button data-noticia-id="{{ n.pk }}" onclick="mostrarMenos(this)" style="display: none;">Ver menos</button>
+            {% else %}
+                <p>
+                    {{ n.contenido }}
+                </p>
+            {% endif %}
 
-        <a class="boton-noticia" href="{% url 'noticias:detalle_noticia' n.pk %}">Ver noticia completa</a>
-        {% if request.user == n.usuario or request.user.is_staff %}
-        <a class="boton-noticia" href="{% url 'noticias:modificar_noticia' n.pk %}">Modificar</a>
-        <a class="boton-noticia" href="{% url 'noticias:borrar_noticia' n.pk %}">Borrar</a>
-        {% endif %}
+            <a class="boton-noticia" href="{% url 'noticias:detalle_noticia' n.pk %}">Ver noticia completa</a>
+            {% if request.user == n.usuario or request.user.is_staff %}
+                <a class="boton-noticia" href="{% url 'noticias:modificar_noticia' n.pk %}">Modificar</a>
+                <a class="boton-noticia" href="{% url 'noticias:borrar_noticia' n.pk %}">Borrar</a>
+            {% endif %}
+        </div>
     </div>
 {% endfor %}
 

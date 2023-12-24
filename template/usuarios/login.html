@@ -6,7 +6,7 @@
 <style>
   body {
       color: white;
-      font-family: 'Roboto', sans-serif; 
+      font-family: 'Century gothic', sans-serif; 
       background-image: url("https://i.imgur.com/4QfKbEr.jpg");
       background-size: cover;
   }
@@ -22,22 +22,30 @@
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 10px;
       box-shadow: 0 0 10px black;
+      position: relative; /* Añadido para posicionamiento relativo */
   }
 
   p {
-      margin: 0;
-      font-family: 'Merriweather', serif; 
+      margin: 20px;
+      font-family: 'Century gothic', serif; 
       color: white; 
       font-weight: bold;
-      font-size: 28px;
+      font-size: 30px;
       text-align: center;
+  }
+
+  .error {
+      color: red;
+      font-size: 16px;
+      text-align: center;
+      grid-column: span 2; /* Para ocupar todo el ancho del formulario */
   }
 
   button {
       grid-column: span 2;
-      background-color: #ff6600; 
+      background-color: #14aa19; 
       color: white;
-      font-family: 'Roboto', monospace; 
+      font-family: 'Century gothic', monospace; 
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -53,17 +61,19 @@
       font-size: 16px;
   }
 
-  input[type="text"], input[type="email"], textarea {
+  input[type="text"], input[type="password"] {
       padding: 10px;
-      border: 2px solid #ffcc00;
+      border: 2px solid #14aa19;
       border-radius: 5px;
       outline: none;
+      width: 100%; /* Hacer ambas cajas del mismo tamaño */
   }
 
-  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-      border-color: #ff6600;
+  input[type="text"]:focus, input[type="password"]:focus {
+      border-color: #14aa19;
   }
 </style>
+
 <p style="text-align: center;">Inicia tu sesión<br>
 
 <form method="POST">{%csrf_token%}
@@ -82,7 +92,5 @@
 </form>
 
 <br><br><br><br><br><br><br><br><br><br>
-
-
 
 {% endblock contenido %}
