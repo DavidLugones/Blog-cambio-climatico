@@ -38,7 +38,7 @@ class Home_Noticias_clase(ListView):
     template_name = 'noticias/home_noticias.html'
     context_object_name = 'noticias'
 
-class Cargar_noticia(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class Cargar_noticia( LoginRequiredMixin, CreateView):
     model = Noticia
     template_name = 'noticias/cargar_noticia.html'
     form_class = Formulario_Noticia
