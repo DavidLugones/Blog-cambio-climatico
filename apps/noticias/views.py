@@ -7,7 +7,7 @@ from apps.comentarios.models import Comentario
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.mixins    import UserPassesTestMixin
+
 
 
 
@@ -52,7 +52,7 @@ class Cargar_noticia( LoginRequiredMixin, CreateView):
         noticia.usuario = self.request.user
         return super(Cargar_noticia, self).form_valid(form)
 
-class Modificar_noticia(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class Modificar_noticia(LoginRequiredMixin, UpdateView):
     model = Noticia
     template_name = 'noticias/modificar_noticia.html'
     form_class = Formulario_Modificar_Noticia
@@ -61,7 +61,7 @@ class Modificar_noticia(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         return self.request.user.is_authenticated and self.request.user.is_staff
 
-class Borrar_noticia(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class Borrar_noticia(LoginRequiredMixin, DeleteView):
     model = Noticia
     success_url = reverse_lazy('noticias:h_noticias')
 
