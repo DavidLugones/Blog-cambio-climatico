@@ -3,67 +3,79 @@
 {% block contenido %}
 
 <style>
-  body {
-      color: white;
-      font-family: 'Roboto', sans-serif; 
+    body {
+        color: white;
+        font-family: 'Century gothic', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #333; 
+    }
 
-  }
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 20px;
+        max-width: 800px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 0 10px black;
+        text-align: center;
+    }
 
-  form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      grid-gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      box-shadow: 0 0 10px black;
-  }
+    h3 {
+        margin: 0;
+        font-family: 'Century gothic', serif;
+        color: hsl(127, 49%, 35%);
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+    }
 
-  p {
-      margin: 0;
-      font-family: 'Merriweather', serif; 
-      color: white; 
-      font-weight: bold;
-      font-size: 24px;
-      text-align: center;
-  }
+    input[type="submit"] {
+        grid-column: span 2;
+        background-color: hsl(127, 49%, 35%);
+        color: white;
+        font-family: 'Century gothic', monospace;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: inset 0 0 5px black;
+    }
 
-  input[type="submit"] {
-      grid-column: span 2;
-      background-color: hsl(127, 49%, 35%); 
-      color: white;
-      font-family: 'Roboto', monospace; 
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      box-shadow: inset 0 0 5px black;
-  }
+    label {
+        color: white;
+        font-size: 16px;
+    }
 
-  label {
-      color: white;
-      font-size: 16px;
-  }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 10px;
+        border: 2px solid hsl(127, 49%, 35%);
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+    }
 
-  input[type="text"], input[type="email"], textarea {
-      padding: 10px;
-      border: 2px solid hsl(127, 49%, 35%); 
-      border-radius: 5px;
-      outline: none;
-  }
-
-  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-      border-color: hsl(127, 49%, 35%); 
-  }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border-color: hsl(127, 49%, 35%);
+    }
 </style>
 
-	<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}         
-        <h3>MODIFICAR NOTICIA</h3>
-          {{form.as_p}}
-          <p><input type="submit" value="Confirmar"></p>
-  </form>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>MODIFICAR NOTICIA</h3>
+    {{ form.as_p }}
+    <p><input type="submit" value="Confirmar"></p>
+</form>
+
 {% endblock contenido %}

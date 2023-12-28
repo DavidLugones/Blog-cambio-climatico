@@ -18,7 +18,7 @@
 </style>
 
 <form method="post" style="position: relative;">{% csrf_token %}
-    <p style="color:white; font-size: 2em;">Estás seguro que desa eliminar?: "{{ object }}"?</p>
+    <p style="color:white; font-size: 2em;">¿Estás seguro que desea eliminar "{{ object }}"?</p>
     {{ form }}
     <input type="submit" value="CONFIRMAR">
 </form>
