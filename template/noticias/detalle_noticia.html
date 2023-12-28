@@ -1,67 +1,84 @@
 {% extends 'home.html' %}
 
-
 {% block contenido %}
 
 <style>
-    h1 {
+    h2{
         color: white; 
+        font-family: Arial;
+        text-align: justify; 
+        font-size: 20px;
+        margin-left: 20px; 
+
+    }
+
+    h1 {
+        color: white;
         font-family: 'Berlin sans fb', sans-serif; 
-        margin-left: 1%;
+        margin-left: 3%;
+        font-size: 30px;
+        text-align: center; 
+        text-decoration: underline;
+        text-decoration-color: green;
     }
 
     p {
         color: white; 
-        font-family: 'Century gothic', sans-serif;
+        font-family: Arial;
         text-align: justify; 
+        font-size: 20px;
+        margin-left: 200px; 
+        margin-right: 200px
     }
 
-    
     textarea[name="comentario"] {
         width: 50%; 
         height: 200px; 
 		margin-left: 1%;
     }
 
-    input[type="submit"] {
+    .button-style {
       background-color: hsl(127, 49%, 35%);
       color: white;
       border: none;
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-      width: 100px; 
+     /* width: 150px; */
       margin-left: 1%; 
       display: inline-block;
     }
 </style>
 
-<h1>Detalle: <br><br> {{noticia.titulo}}</h1>
-
-<p>{{noticia.contenido|linebreaksbr}}</p>
-<p><img src="{{noticia.imagen.url}}" width="750px"></p>
-
-<hr>
-
-<h1>COMENTARIOS</h1>
+<br><br><br>
+<h1>{{noticia.titulo}}</h1>
 <br>
+<p>{{noticia.contenido|linebreaksbr}}</p>
+<br>
+<p><img src="{{noticia.imagen.url}}" width="750px"></p>
+<br>
+<h2>COMENTARIOS</h2><br>
 {% for c in comentarios %}
     <div>
-        <p>{{c.usuario}} : {{c.texto}}</p>
+        <h2>{{c.usuario}} : {{c.texto}}</h2><br>
         {% if request.user == c.usuario %}
-        <a href="{% url 'comentarios:borrar_comentario' c.pk%}"><p>Borrar Comentario</p></a>   <a href="{% url 'comentarios:modificar_comentario' c.pk%}"><p>Modificar Comentario</p></a>
+           <a class="button-style" href="{% url 'comentarios:modificar_comentario' c.pk%}" >Modificar Comentario</a>
+        {% endif %}
+        {% if request.user == c.usuario or request.user.is_staff %}
+           <a class="button-style" href="{% url 'comentarios:borrar_comentario' c.pk%}" >Borrar Comentario</a> 
         {% endif %}
     </div>
+    <br>
 {% endfor %}
 <br>
 {% if request.user.is_authenticated %}
 <form method="POST" action="{% url 'comentarios:agregar' noticia.pk %}">{% csrf_token %}
     <textarea name="comentario"></textarea>
 	<br>
-    <input type="submit" name="" value="COMENTAR">
+    <input class="button-style" type="submit" name="" value="COMENTAR">
 </form>
 <br><br>
 {% endif %}
 
-
 {% endblock contenido %}
+
